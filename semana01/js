@@ -1,4 +1,3 @@
-// Script simples para validar o carregamento e exibir data atual
 document.addEventListener("DOMContentLoaded", () => {
     console.log("Script obterdatas.js carregado com sucesso!");
     const footer = document.querySelector("footer p:last-child");
