@@ -27,12 +27,10 @@ nav a {
 
 /* CONTEÚDO */
 main {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    /* duas colunas */
+    display: flex;
+    justify-content: center;
     gap: 30px;
     margin: 20px;
-    justify-items: center;
 }
 
 .card {
@@ -53,9 +51,4 @@ footer {
     color: white;
     text-align: center;
     padding: 10px;
-}
-
-.card:hover {
-    transform: scale(1.03);
-    transition: 0.3s;
 }
