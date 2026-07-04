@@ -10,9 +10,9 @@ body {
     font-family: 'Roboto', sans-serif;
     display: grid;
     grid-template-areas:
-        "header header"
-        "main main"
-        "footer footer";
+        "header"
+        "main"
+        "footer";
     grid-template-rows: auto 1fr auto;
     min-height: 100vh;
 }
@@ -55,6 +55,11 @@ main {
     padding: 2rem;
 }
 
+main h1 {
+    grid-column: 1 / -1;
+    margin-bottom: 1rem;
+}
+
 .card {
     background-color: #fff;
     border-radius: 8px;
@@ -75,6 +80,10 @@ footer {
     color: white;
     text-align: center;
     padding: 1rem;
+}
+
+footer p:first-child span {
+    font-weight: bold;
 }
 
 /* Responsividade */
