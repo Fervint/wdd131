@@ -4,37 +4,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fabio Ricardo - WDD131</title>
+    <title>WDD131 | Fundamentos da Web Dinâmica - Fabio Ricardo</title>
+    <meta name="description"
+        content="Página inicial do curso WDD131 - Fundamentos da Web Dinâmica, desenvolvida por Fabio Ricardo.">
+    <meta name="author" content="Fabio Ricardo">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="estilos/layout.css">
 </head>
 
 <body>
     <header>
-        <h1>Conteúdo do Header</h1>
+        <h1><span id="course-title">WDD131 | Fundamentos da Web Dinâmica</span></h1>
+        <h2>Fabio Ricardo</h2>
+        <nav>
+            <ul>
+                <li><a href="#">Página Inicial</a></li>
+                <li><a href="#">Projetos</a></li>
+                <li><a href="#">Serviços</a></li>
+                <li><a href="#">Fale Conosco</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Contato</a></li>
+                <li><a href="#">Ajuda</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="#">Página Inicial</a></li>
-            <li><a href="#">Projetos</a></li>
-            <li><a href="#">Serviços</a></li>
-            <li><a href="#">Fale Conosco</a></li>
-        </ul>
-    </nav>
-
     <main>
-        <h2>Conteúdo do Main</h2>
-        <p>Esta é a área principal do layout, onde o conteúdo principal da página será exibido.</p>
+        <h1>Bem-vindo ao Curso</h1>
+        <section class="card">
+            <h2>Projeto 1</h2>
+            <p>Este é o primeiro projeto do curso WDD131.</p>
+            <img src="imagens/projeto1.jpg" alt="Imagem ilustrativa do Projeto 1">
+        </section>
+
+        <section class="card">
+            <h2>Projeto 2</h2>
+            <p>Este é o segundo projeto do curso WDD131.</p>
+            <img src="imagens/projeto2.jpg" alt="Imagem ilustrativa do Projeto 2">
+        </section>
     </main>
 
-    <aside>
-        <h2>Conteúdo do Aside</h2>
-        <p>Esta seção pode conter informações adicionais, links ou anúncios.</p>
-    </aside>
-
     <footer>
-        <p>Conteúdo do Footer</p>
+        <p><span>Fabio Ricardo</span> - Todos os direitos reservados © 2026</p>
+        <p>Curso WDD131 - BYU-Idaho</p>
     </footer>
+
+    <script src="scripts/obterdados.js"></script>
 </body>
 
 </html>

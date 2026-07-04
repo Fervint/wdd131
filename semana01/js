@@ -1,0 +1,4 @@
+// Exemplo simples para validar o carregamento do script
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("Script obterdados.js carregado com sucesso!");
+});
