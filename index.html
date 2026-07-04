@@ -1,13 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <title>WDD 131 – Fundamentos da Web Dinâmica - Fabio Ricardo</title>
+
+    <meta name="description"
+        content="WDD 131 – Fundamentos da Web Dinâmica | Fabio Ricardo | HTML, CSS e JavaScript com conteúdo dinâmico.">
+    <meta name="author" content="Fabio Ricardo">
+
+    <link rel="stylesheet" href="estilos/base.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <script src="scripts/obterdatas.js" defer></script>
 </head>
+
 <body>
-    <h1>Fabio Ricardo</h1>
-    software engineer, web developer, and technology enthusiast. I have a passion for creating innovative solutions and building user-friendly applications. With experience in various programming languages and frameworks, I enjoy tackling complex problems and continuously learning new skills. In my free time, I like to explore the latest trends in technology and contribute to open-source projects.    
-    
+
+    <header>
+        <h1>WDD 131: Fundamentos da Web Dinâmica</h1>
+
+        <nav>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://byupw.instructure.com/" target="_blank" rel="noopener noreferrer">Canvas</a>
+            <a href="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/3?lang=por&id=p7#p7" target="_blank"
+                rel="noopener noreferrer">Escritura</a>
+            <a href="#">Projeto Final</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <h2>Fabio Ricardo</h2>
+
+        <section class="card">
+            <h3>Sobre Mim</h3>
+
+            <div class="conteudo">
+                <p>
+                    Meu nome é Fabio Ricardo. Trabalho com crédito consignado e gosto de tecnologia,
+                    investimentos e desenvolvimento web. Estou evoluindo minhas habilidades todos os dias.
+                </p>
+
+                <img src="imagens/perfil.png" alt="Foto de perfil de Fabio Ricardo">
+            </div>
+        </section>
+
+        <section class="card">
+            <h3>Localização</h3>
+
+            <div class="conteudo">
+                <img src="imagens/bandeira.jpg" alt="Bandeira do Brasil">
+
+                <p>
+                    Moro no Brasil 🇧🇷, um país cheio de diversidade cultural.
+                    Aqui estou construindo meu conhecimento em programação e finanças.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>
+            © <span id="anoAtual"></span> Fabio Ricardo - Brasil
+        </p>
+
+        <p id="ultimaModificacao"></p>
+    </footer>
+
 </body>
+
 </html>
