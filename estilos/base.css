@@ -1,94 +1,54 @@
 body {
-    font-family: 'Inter', sans-serif;
-    background-color: #eaeaea;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
+    background-color: #f0f0f0;
 }
 
 /* HEADER */
 header {
-    background: #1f3c88;
+    background-color: #2c4a92;
     color: white;
     text-align: center;
     padding: 15px;
 }
 
-nav {
-    background: #333;
+nav ul {
+    list-style: none;
+    padding: 0;
     display: flex;
     justify-content: center;
+    gap: 20px;
 }
 
 nav a {
     color: white;
-    padding: 10px 20px;
     text-decoration: none;
 }
 
-nav a:hover {
-    background: #555;
-}
-
-/* MAIN */
+/* CONTEÚDO */
 main {
-    max-width: 1000px;
-    margin: auto;
-    padding: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 20px;
 }
 
-main h2 {
-    text-align: center;
-}
-
-/* GRID PRINCIPAL */
-main {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-
-/* CARDS */
 .card {
     background: white;
+    padding: 15px;
     border-radius: 10px;
-    overflow: hidden;
+    width: 300px;
 }
 
-.card h3 {
-    background: #1f3c88;
-    color: white;
-    padding: 10px;
-}
-
-/* CONTEUDO */
-.conteudo {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 10px;
-    padding: 10px;
-}
-
-.conteudo img {
+.card img {
     width: 100%;
     border-radius: 8px;
 }
 
-/* BANDEIRA MENOR */
-.bandeira {
-    width: 120px;
-    display: block;
-    margin-bottom: 5px;
-}
-
-.bandeira-container {
-    text-align: center;
-    padding: 10px;
-}
-
 /* FOOTER */
 footer {
-    background: #1f3c88;
+    background-color: #2c4a92;
     color: white;
     text-align: center;
     padding: 10px;
-    margin-top: 20px;
 }
