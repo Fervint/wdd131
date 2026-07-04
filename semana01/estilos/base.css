@@ -22,8 +22,8 @@ body {
 /* Header */
 header {
     grid-area: header;
-    background-color: #333;
-    color: white;
+    background-color: #333333;
+    color: #ffffff;
     padding: 1rem 2rem;
 }
 
@@ -32,12 +32,12 @@ nav ul {
     display: flex;
     justify-content: space-around;
     list-style: none;
-    background-color: #000;
+    background-color: #000000;
     padding: 1rem 0;
 }
 
 nav a {
-    color: white;
+    color: #ffffff;
     text-decoration: none;
     font-weight: 700;
     transition: color 0.3s;
@@ -58,7 +58,7 @@ main {
 }
 
 .card {
-    background-color: #fff;
+    background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     padding: 1rem;
@@ -73,15 +73,15 @@ main {
 /* Aside */
 aside {
     grid-area: aside;
-    background-color: #fff;
+    background-color: #ffffff;
     padding: 1rem;
 }
 
 /* Footer */
 footer {
     grid-area: footer;
-    background-color: #333;
-    color: white;
+    background-color: #333333;
+    color: #ffffff;
     text-align: center;
     padding: 1rem;
 }
