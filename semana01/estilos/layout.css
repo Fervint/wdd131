@@ -24,7 +24,7 @@ header {
     grid-area: header;
     background-color: #333;
     color: white;
-    padding: 1rem;
+    padding: 1rem 2rem;
 }
 
 /* Navegação */
@@ -43,21 +43,26 @@ nav ul {
 nav a {
     color: white;
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #ffcc00;
 }
 
 /* Main */
 main {
     grid-area: main;
     background-color: #c9c9c9;
-    padding: 1rem;
+    padding: 1.5rem;
 }
 
 /* Aside */
 aside {
     grid-area: aside;
     background-color: #fff;
-    padding: 1rem;
+    padding: 1.5rem;
 }
 
 /* Footer */
@@ -84,5 +89,6 @@ footer {
     nav ul {
         flex-direction: column;
         align-items: center;
+        gap: 0.5rem;
     }
 }
