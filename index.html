@@ -7,87 +7,75 @@
 
     <title>WDD 131 – Fundamentos da Web Dinâmica - Fabio Ricardo</title>
 
-    <meta name="description"
-        content="WDD 131 – Fundamentos da Web Dinâmica | Fabio Ricardo | HTML, CSS e JavaScript com conteúdo dinâmico.">
+    <meta name="description" content="WDD 131 – Fundamentos da Web Dinâmica | Fabio Ricardo | HTML, CSS e JavaScript.">
     <meta name="author" content="Fabio Ricardo">
 
+    <!-- CSS -->
     <link rel="stylesheet" href="estilos/base.css">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-
-    <script src="scripts/obterdatas.js" defer></script>
+    <!-- Google Fonts (CORRETO) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <script src="scripts/obterdatas.js" defer></script>
 </head>
 
 <body>
 
-<header>
-    <h1>
-        <span id="course-title">WDD 131 - Fundamentos da Web Dinâmica</span>
-    </h1>
+    <header>
+        <h1>
+            <span id="course-title">WDD 131 - Fundamentos da Web Dinâmica</span>
+        </h1>
 
-    <nav>
-        <ul>
-            <li><a href="#">LinkedIn</a></li>
-            <li><a href="#">Canvas</a></li>
-            <li><a href="#">Escritura</a></li>
-            <li><a href="#">Projeto Final</a></li>
-        </ul>
-    </nav>
-</header>
-  
-<main>
+        <nav>
+            <ul>
+                <li><a href="#">LinkedIn</a></li>
+                <li><a href="#">Canvas</a></li>
+                <li><a href="#">Escritura</a></li>
+                <li><a href="#">Projeto Final</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <h2>Fabio Ricardo</h2>
+    <main>
 
-    <!-- CARD ESQUERDO -->
-    <section class="card">
-        <h3>Sobre Mim</h3>
+        <h2>Fabio Ricardo</h2>
 
-        <div class="conteudo">
+        <section class="card">
+            <h3>Sobre Mim</h3>
+
             <p>
                 Meu nome é Fabio Ricardo. Sou motorista de aplicativo e apaixonado por tecnologia,
                 investimentos e aprendizado contínuo.
             </p>
 
             <img src="imagens/perfil.png" alt="Foto de perfil">
-        </div>
 
-        <div class="bandeira-container">
             <h4>Brasil</h4>
-
-            <img class="bandeira" src="imagens/bandeira.jpg" alt="Bandeira do Brasil">
+            <img src="imagens/bandeira.jpg" alt="Bandeira do Brasil">
 
             <p>
                 O Brasil é conhecido por sua diversidade cultural e belezas naturais.
             </p>
-        </div>
-    </section>
+        </section>
 
-    <!-- CARD DIREITO -->
-    <section class="card">
-        <h3>Recursos Web Dev</h3>
+        <section class="card">
+            <h3>Recursos Web Dev</h3>
 
-        <ul class="recursos-list">
-            <li><a href="https://dev.to/" target="_blank" rel="noopener">Comunidade Dev.to</a></li>
-            <li><a href="https://www.smashingmagazine.com/" target="_blank" rel="noopener">Revista Smashing</a></li>
-            <li><a href="https://css-tricks.com/" target="_blank" rel="noopener">CSS Tricks</a></li>
-            <li><a href="https://www.w3schools.com/" target="_blank" rel="noopener">W3 Schools</a></li>
-            <li><a href="https://www.udemy.com/" target="_blank" rel="noopener">Udemy</a></li>
-        </ul>
-    </section>
+            <ul>
+                <li><a href="#">Comunidade Dev.to</a></li>
+                <li><a href="#">Revista Smashing</a></li>
+                <li><a href="#">CSS Tricks</a></li>
+                <li><a href="#">W3 Schools</a></li>
+                <li><a href="#">Udemy</a></li>
+            </ul>
+        </section>
 
-</main>
+    </main>
 
     <footer>
-        <p>
-            © <span id="anoAtual"></span> Fabio Ricardo - Brasil
-        </p>
-
+        <p>© <span id="anoAtual"></span> Fabio Ricardo - Brasil</p>
         <p id="ultimaModificacao"></p>
     </footer>
 
