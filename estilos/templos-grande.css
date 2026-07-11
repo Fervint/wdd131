@@ -1,14 +1,18 @@
 @media (min-width: 700px) {
+
+    /* Oculta o botão hambúrguer em telas grandes */
     #hamburguer {
         display: none;
     }
 
+    /* Navegação com espaçamento maior */
     nav ul {
         display: flex;
         justify-content: center;
         gap: 1.5rem;
     }
 
+    /* Grade de templos ajustada para telas maiores */
     .grid-templos {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         max-width: 1000px;
