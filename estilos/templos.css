@@ -1,3 +1,4 @@
+/* Fonte e estilo geral */
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
@@ -5,6 +6,7 @@ body {
     color: #333;
 }
 
+/* Cabeçalho */
 header {
     background-color: #4b0082;
     color: white;
@@ -12,16 +14,21 @@ header {
     padding: 1rem;
 }
 
+/* Navegação com Flexbox */
 nav ul {
-    display: none;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 nav a {
     color: white;
     text-decoration: none;
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
 }
 
 nav a:hover {
@@ -29,34 +36,47 @@ nav a:hover {
     border-radius: 5px;
 }
 
+/* Botão de menu hambúrguer (mobile) */
 #hamburguer {
+    display: none;
     background: none;
     border: none;
     color: white;
     font-size: 1.5rem;
 }
 
+/* Grade de templos */
 .grid-templos {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1rem;
+    justify-items: center;
     padding: 1rem;
 }
 
-figure {
-    margin: 0;
-    text-align: center;
-}
-
+/* Imagens responsivas e proporcionais */
 img {
     width: 100%;
     height: auto;
+    max-width: 350px;
     border-radius: 8px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
 }
 
+/* Legendas */
+figure {
+    margin: 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* Rodapé */
 footer {
     background-color: #4b0082;
     color: white;
     text-align: center;
     padding: 1rem;
+    font-size: 0.9rem;
 }
