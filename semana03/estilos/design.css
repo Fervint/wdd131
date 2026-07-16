@@ -1,0 +1,75 @@
+/* Fonte padrão */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Cabeçalho */
+header {
+    background-color: #702963;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+}
+
+.banner {
+    background-color: #444;
+    color: #fff;
+    padding: 0.5rem;
+    margin-top: 1rem;
+}
+
+/* Layout principal em grid */
+main {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+main h2 {
+    grid-column: 1 / -1;
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+/* Callout com contraste corrigido */
+.callout {
+    background-color: #702963;
+    color: #fff;
+    /* contraste melhorado */
+    padding: 1rem;
+    border-radius: 5px;
+    margin-top: 1rem;
+}
+
+/* Lista lateral */
+aside ul {
+    list-style-type: square;
+    padding-left: 20px;
+}
+
+/* Rodapé */
+footer {
+    background-color: #eee;
+    padding: 1rem;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+
+    main h2 {
+        grid-column: 1;
+    }
+}
