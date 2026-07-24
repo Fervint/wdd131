@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Álbum de templos criado por Fabio Ricardo para o curso WDD131. Página responsiva com imagens e informações sobre templos.">
+    <meta name="author" content="Fabio Ricardo">
+    <title>Álbum do Templo</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="estilos/templos-filtrados.css">
+    <link rel="stylesheet" href="estilos/templos-grande.css">
+
+    <!-- JS -->
+    <script src="scripts/templos-filtrados.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <h1>Álbum do Templo</h1>
+        <nav id="menu">
+            <button id="hamburguer">☰</button>
+            <ul id="nav-links">
+                <li><a href="#" data-filter="home">Home</a></li>
+                <li><a href="#" data-filter="old">Old</a></li>
+                <li><a href="#" data-filter="new">New</a></li>
+                <li><a href="#" data-filter="large">Large</a></li>
+                <li><a href="#" data-filter="small">Small</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Templos</h2>
+        <section class="grid-templos"></section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="ano"></span> Fabio Ricardo — Aparecida de Goiânia, GO, Brasil</p>
+        <p>Última modificação: <span id="modificacao"></span></p>
+    </footer>
+</body>
+
+</html>

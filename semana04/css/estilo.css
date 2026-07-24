@@ -1,0 +1,21 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #111;
+    color: #fff;
+}
+
+main img {
+    display: block;
+    margin: 20px auto;
+    width: 400px;
+    height: 600px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+main img[src] {
+    opacity: 1;
+    transform: translateY(0);
+}
