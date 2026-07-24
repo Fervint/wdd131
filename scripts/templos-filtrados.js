@@ -91,17 +91,19 @@ function exibirTemplos(lista) {
 }
 
 // Filtros
-document.querySelector("#nav-links").addEventListener("click", (e) => {
-  e.preventDefault();
-  const filtro = e.target.dataset.filter;
-  let filtrados = templos;
+document.querySelector("#menu").addEventListener("click", (e) => {
+  if (e.target.dataset.filter) {
+    e.preventDefault();
+    const filtro = e.target.dataset.filter;
+    let filtrados = templos;
 
-  if (filtro === "old") filtrados = templos.filter(t => parseInt(t.consagracao) < 1900);
-  if (filtro === "new") filtrados = templos.filter(t => parseInt(t.consagracao) > 2000);
-  if (filtro === "large") filtrados = templos.filter(t => t.area > 90000);
-  if (filtro === "small") filtrados = templos.filter(t => t.area < 10000);
+    if (filtro === "old") filtrados = templos.filter(t => parseInt(t.consagracao) < 1900);
+    if (filtro === "new") filtrados = templos.filter(t => parseInt(t.consagracao) > 2000);
+    if (filtro === "large") filtrados = templos.filter(t => t.area > 90000);
+    if (filtro === "small") filtrados = templos.filter(t => t.area < 10000);
 
-  exibirTemplos(filtrados);
+    exibirTemplos(filtrados);
+  }
 });
 
 // Exibe todos inicialmente
