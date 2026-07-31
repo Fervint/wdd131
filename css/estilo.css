@@ -93,3 +93,20 @@ footer {
     font-size: 0.9rem;
     color: #333;
 }
+
+/* Responsividade */
+@media (max-width: 600px) {
+    form {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .radio-group {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .checkbox-group {
+        grid-template-columns: 1fr;
+    }
+}
