@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Preencha">
+    <meta name="author" content="John Doe">
+
+    <!-- Este arquivo inicial foi criado por Paul Cheney -->
+    <title>Site inicial HTML5 por Paul Cheney</title>
+
+    <!-- INFORMA AO CELULAR QUE NÃO DEVE MENTIR SOBRE SUA LARGURA -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- FOLHAS DE ESTILO -->
+    <link href="css/normalize.css" rel="stylesheet">
+    <!-- celular padrão -->
+    <link href="css/pequeno.css" rel="stylesheet">
+    <!-- melhoria para tablet -->
+    <link href="css/medio.css" rel="stylesheet">
+    <!-- melhoria para desktop -->
+    <link href="css/grande.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- CABEÇALHO AQUI -->
+    <header>
+        <h1>Proposta de Curso</h1>
+        <h2>Design de Formulários Web</h2>
+    </header>
+
+
+    <!-- NAVEGAÇÃO AQUI -->
+    <nav>
+        <ul>
+            <li><a href="#">Sobre</a></li>
+            <li class="ativo"><a href="#">Propor</a></li>
+            <li><a href="#">Vencedores</a></li>
+            <li><a href="#">Contato</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- CONTEÚDO AQUI -->
+    <main>
+        <h1>Formulário de Proposta de Curso</h1>
+        <form method="GET" action="obrigado.html">>
+        <fieldset>
+            <legend>Informacoes do Candidato</legend>
+            <label>Nome:*<input type="text" name="nome" required></label>
+            <label>Sobrenome :*<input type="text" name="sobrenome" required></label>
+            <label>Telefone :*<input type="tel" name="fone" placeholder="1234567890"></label>
+            <label>Email :*<input type="email" name="email" placeholder="alguem@gmail.com" required></label>
+            <label>Website :*<input type="url" name="url" placeholder="http://"></label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Informações do Curso</legend>
+            <div>Pūblico-alvo</div>
+            <label><input type="radio" name="publico" value="iniciante">Iniciante</label>
+            <label><input type="radio" name="publico" value="intermediario">Intermediario</label>
+            <label><input type="radio" name="publico" value="avancado">Avançado</label>
+
+            <div>Software necessario</div>
+            <label><input type="checkbox" name="edicao" value="sim">Edição de Fotos</label>
+            <label><input type="checkbox" name="programacao" value="sim">Programação</label>
+            <label><input type="checkbox" name="processador" value="sim">Pre-processador</label>
+            <label><input type="checkbox" name="cliente" value="sim">Cliente FTP</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Financiamento</legend>
+            <label>Data prevista de conclusao <input type="date" name="data"></label>
+
+            <label>Area do curso
+                <select name="tema">
+                    <option value="">Selecione</option>
+                    <option value="software">Desenvolvimento de Software</option>
+                    <option value="criativo">Profissional Criativo</option>
+                    <option value="ti">Tecnologia da Informação</option>
+                    <option value="data">Analista de Dados</option>
+                    <option value="construcao">Construção</option>
+                    <option value="manufatura">Manufatura</option>
+                    <option value="negocios">Negócios</option>
+                    <option value="seguranca">Segurança Cibernetica</option>
+
+                </select>
+
+                <label>Quantidade de autores <input type="number" name="autores"></label>
+
+            </label>
+
+        </fieldset>
+
+        <input type="submit" value="Propor meu curso">
+
+        </form>
+    </main>
+
+    <!-- RODAPÉ AQUI -->
+    <footer>
+        &copy; 2024 &bull; Paul Cheney &bull; 123-555-6789
+    </footer>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>
