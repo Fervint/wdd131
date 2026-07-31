@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmação de Avaliação</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f4f4f9;
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            color: #4b0082;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Obrigado pela sua avaliação!</h1>
+    <p>Seu feedback foi registrado com sucesso.</p>
+    <p id="contador"></p>
+
+    <script>
+        let contador = localStorage.getItem("avaliacoes") || 0;
+        contador++;
+        localStorage.setItem("avaliacoes", contador);
+        document.getElementById("contador").textContent = `Total de avaliações enviadas: ${contador}`;
+    </script>
+</body>
+
+</html>
