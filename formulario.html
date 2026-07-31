@@ -4,107 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Formulário de avaliação de produto para o curso WDD131.">
+    <meta name="author" content="Fabio Ricardo">
     <title>Avaliação do Produto</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background-color: #f4f4f9;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-        }
-
-        form {
-            width: 100%;
-            max-width: 420px;
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        label,
-        legend {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-
-        fieldset {
-            border: none;
-            margin-bottom: 15px;
-        }
-
-        /* Alinhamento horizontal das estrelas */
-        .radio-group {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
-
-        .radio-group label {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            font-weight: normal;
-        }
-
-        /* Alinhamento das caixas de marcação */
-        .checkbox-group {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 6px 10px;
-            align-items: center;
-        }
-
-        .checkbox-group label {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-weight: normal;
-        }
-
-        input,
-        select,
-        textarea {
-            width: 100%;
-            margin-bottom: 10px;
-            padding: 8px;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-        }
-
-        input[type="submit"] {
-            display: block;
-            width: 100%;
-            background-color: #4b0082;
-            color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #6a0dad;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 0.9rem;
-            color: #333;
-        }
-    </style>
+    <link rel="stylesheet" href="css/estilo.css">
 </head>
 
 <body>
+    <header>
+        <h1>Formulário de Avaliação de Produto</h1>
+    </header>
+
     <form action="avaliacao.html" method="get">
         <label for="produto">Nome do Produto:</label>
         <select id="produto" name="produto" required>
@@ -114,11 +24,16 @@
         <fieldset>
             <legend>Classificação Geral:</legend>
             <div class="radio-group">
-                <label><input type="radio" name="classificacao" value="1" required> ★</label>
-                <label><input type="radio" name="classificacao" value="2"> ★★</label>
-                <label><input type="radio" name="classificacao" value="3"> ★★★</label>
-                <label><input type="radio" name="classificacao" value="4"> ★★★★</label>
-                <label><input type="radio" name="classificacao" value="5"> ★★★★★</label>
+                <label for="estrela1"><input type="radio" id="estrela1" name="classificacao" value="1" required>
+                    ★</label>
+                <label for="estrela2"><input type="radio" id="estrela2" name="classificacao" value="2" required>
+                    ★★</label>
+                <label for="estrela3"><input type="radio" id="estrela3" name="classificacao" value="3" required>
+                    ★★★</label>
+                <label for="estrela4"><input type="radio" id="estrela4" name="classificacao" value="4" required>
+                    ★★★★</label>
+                <label for="estrela5"><input type="radio" id="estrela5" name="classificacao" value="5" required>
+                    ★★★★★</label>
             </div>
         </fieldset>
 
@@ -128,10 +43,13 @@
         <fieldset>
             <legend>Recursos Úteis:</legend>
             <div class="checkbox-group">
-                <label><input type="checkbox" name="recursos" value="durabilidade"> Durabilidade</label>
-                <label><input type="checkbox" name="recursos" value="facilidade"> Facilidade de Uso</label>
-                <label><input type="checkbox" name="recursos" value="desempenho"> Desempenho</label>
-                <label><input type="checkbox" name="recursos" value="design"> Design</label>
+                <label for="durabilidade"><input type="checkbox" id="durabilidade" name="recursos" value="durabilidade">
+                    Durabilidade</label>
+                <label for="facilidade"><input type="checkbox" id="facilidade" name="recursos" value="facilidade">
+                    Facilidade de Uso</label>
+                <label for="desempenho"><input type="checkbox" id="desempenho" name="recursos" value="desempenho">
+                    Desempenho</label>
+                <label for="design"><input type="checkbox" id="design" name="recursos" value="design"> Design</label>
             </div>
         </fieldset>
 
@@ -149,23 +67,7 @@
         <p>Última Modificação: 07/31/2026 17:37:00</p>
     </footer>
 
-    <script>
-        const produtos = [
-            { id: "fc-1888", nome: "capacitor de fluxo", classificacaomedia: 4.5 },
-            { id: "fc-2050", nome: "fios elétricos", classificacaomedia: 4.7 },
-            { id: "fs-1987", nome: "circuitos de tempo", classificacaomedia: 3.5 },
-            { id: "ac-2000", nome: "reator de baixa tensão", classificacaomedia: 3.9 },
-            { id: "jj-1969", nome: "equalizador de distorção", classificacaomedia: 5.0 }
-        ];
-
-        const selectProduto = document.getElementById("produto");
-        produtos.forEach(produto => {
-            const option = document.createElement("option");
-            option.value = produto.id;
-            option.textContent = produto.nome;
-            selectProduto.appendChild(option);
-        });
-    </script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>

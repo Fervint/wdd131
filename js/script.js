@@ -1,4 +1,3 @@
-// Preenche dinamicamente o campo de produtos
 const produtos = [
   { id: "fc-1888", nome: "capacitor de fluxo", classificacaomedia: 4.5 },
   { id: "fc-2050", nome: "fios elétricos", classificacaomedia: 4.7 },
