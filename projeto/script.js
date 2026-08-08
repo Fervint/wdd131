@@ -60,8 +60,16 @@ function initDicasPage() {
   renderizarDicas();
   lista.addEventListener("change", atualizarStatus);
 
+  // garantir texto inicial do botão conforme estado atual
+  botaoExtras.textContent = extras.classList.contains("oculto") ? "Mostrar dicas extras" : "Ocultar dicas extras";
+
   botaoExtras.addEventListener("click", () => {
     extras.classList.toggle("oculto");
+    if (extras.classList.contains("oculto")) {
+      botaoExtras.textContent = "Mostrar dicas extras";
+    } else {
+      botaoExtras.textContent = "Ocultar dicas extras";
+    }
   });
 }
 

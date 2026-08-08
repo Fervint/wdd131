@@ -53,26 +53,192 @@
 
         <section class="content-card">
             <h2>Compartilhe sua experiência</h2>
-            <form id="formSeguranca" action="#" method="post">
-                <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="nome" required>
-                <label for="mensagem">Mensagem:</label>
-                <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
-                <button type="submit">Enviar</button>
+            <form id="formSeguranca" action="#" method="post" class="form-card">
+                <div class="skate-banner">
+                    <span class="skate-tag">SK8</span>
+                    <h1>Avaliação do Site — Aprender Skate</h1>
+                </div>
+
+                <p class="small">Ajude-nos a melhorar: deixe sua opinião sobre o site e sobre o conteúdo.</p>
+
+                <label for="pagina">Página avaliada</label>
+                <select id="pagina" name="pagina" required>
+                    <option value="home">Página Inicial</option>
+                    <option value="dicas">Dicas</option>
+                    <option value="seguranca">Segurança</option>
+                    <option value="referencias">Referências</option>
+                    <option value="outro">Outro</option>
+                </select>
+
+                <fieldset>
+                    <legend>Classificação geral</legend>
+                    <div class="radio-group">
+                        <label><input type="radio" name="nota" value="1" required> ★</label>
+                        <label><input type="radio" name="nota" value="2"> ★★</label>
+                        <label><input type="radio" name="nota" value="3"> ★★★</label>
+                        <label><input type="radio" name="nota" value="4"> ★★★★</label>
+                        <label><input type="radio" name="nota" value="5"> ★★★★★</label>
+                    </div>
+                </fieldset>
+
+                <label>Você gostou do site?</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="gostou" value="sim" required> Sim</label>
+                    <label><input type="radio" name="gostou" value="mais_ou_menos"> Mais ou menos</label>
+                    <label><input type="radio" name="gostou" value="nao"> Não</label>
+                </div>
+
+                <label for="comentario">Comentário</label>
+                <textarea id="comentario" name="comentario" rows="4"
+                    placeholder="Diga o que gostou, o que falta, sugestões..."></textarea>
+
+                <label for="nome">Seu nome (opcional)</label>
+                <input type="text" id="nome" name="nome" placeholder="Apelido ou nome">
+
+                <div class="form-actions">
+                    <button type="submit" class="btn">Publicar Avaliação</button>
+                    <button type="button" id="limparForm" class="btn secondary">Limpar campos</button>
+                </div>
+            
+                    <div id="estatisticas" class="estatisticas">
+                        <h3>Estatísticas</h3>
+                        <div id="resumoEstatisticas" class="small">Nenhuma avaliação ainda.</div>
+                    </div>
+
+                    <div class="reviews">
+                        <h2>Avaliações salvas</h2>
+                        <div class="review-actions">
+                            <button type="button" id="exportBtn" class="btn secondary">Exportar JSON</button>
+                            <button type="button" id="clearAll" class="btn secondary">Limpar todas</button>
+                        </div>
+                        <div id="listaAvaliacoes"></div>
+                    </div>
             </form>
             <p id="confirmacao" class="oculto confirmacao">✅ Obrigado por compartilhar sua experiência!</p>
         </section>
     </main>
 
-    <script>
-        document.getElementById("formSeguranca").addEventListener("submit", function (event) {
-            event.preventDefault();
-            const confirmacao = document.getElementById("confirmacao");
-            confirmacao.textContent = "✅ Mensagem enviada com sucesso! A mensagem não é armazenada, mas sua voz foi ouvida.";
-            confirmacao.classList.remove("oculto");
-            this.reset();
-        });
-    </script>
+        <script>
+            const STORAGE_KEY = 'avaliacoesSkate_v1';
+
+            function carregarAvaliacoes(){
+                const raw = localStorage.getItem(STORAGE_KEY);
+                return raw ? JSON.parse(raw) : [];
+            }
+
+            function salvarAvaliacoes(list){
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+            }
+
+            function gerarId(){
+                return 'a' + Date.now() + Math.floor(Math.random()*9999);
+            }
+
+            function escapeHtml(str){
+                if(!str) return '';
+                return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+            }
+
+            function calcularEstatisticas(list){
+                const total = list.length;
+                if(total === 0) return null;
+                const soma = list.reduce((s, a) => s + Number(a.nota || 0), 0);
+                const media = soma / total;
+                const distribuicao = {1:0,2:0,3:0,4:0,5:0};
+                list.forEach(a => { distribuicao[a.nota] = (distribuicao[a.nota] || 0) + 1; });
+                // encontrar nota mais votada
+                let maisVotada = 5; let maxCount = -1;
+                for(let i=1;i<=5;i++){
+                    const c = distribuicao[i] || 0;
+                    if(c > maxCount){ maxCount = c; maisVotada = i; }
+                }
+                return { total, media, distribuicao, maisVotada };
+            }
+
+            function renderEstatisticas(){
+                const list = carregarAvaliacoes();
+                const stats = calcularEstatisticas(list);
+                const container = document.getElementById('resumoEstatisticas');
+                if(!stats){ container.innerHTML = 'Nenhuma avaliação ainda.'; return; }
+                const pct = s => Math.round((s / stats.total) * 100);
+                container.innerHTML = `
+                    <div><strong>Média:</strong> ${stats.media.toFixed(1)} ★ — <span class="small">${stats.total} avaliações</span></div>
+                    <div class="stats-list">
+                        ${[5,4,3,2,1].map(n => `<div class="small">${n} ★: ${stats.distribuicao[n] || 0} (${pct(stats.distribuicao[n]||0)}%) ${stats.maisVotada==n?'<strong>← mais votada</strong>':''}</div>`).join('')}
+                    </div>
+                `;
+            }
+
+            function renderAvaliacoes(){
+                const container = document.getElementById('listaAvaliacoes');
+                const avaliacoes = carregarAvaliacoes();
+                container.innerHTML = '';
+                if(avaliacoes.length === 0){
+                    container.innerHTML = '<p class="small">Ainda não há avaliações.</p>';
+                    return;
+                }
+                avaliacoes.slice().reverse().forEach(a => {
+                const el = document.createElement('div');
+                el.className = 'review';
+                const header = document.createElement('header');
+                header.classList.add('review-header');
+                    const left = document.createElement('div');
+                    left.innerHTML = `<strong>${escapeHtml(a.nome || 'Anônimo')}</strong> <span class="small">— ${escapeHtml(a.pagina)}</span>`;
+                    const right = document.createElement('div');
+                    right.innerHTML = `<span class="small">${escapeHtml(a.nota)} ★</span> <span class="small">${new Date(a.timestamp).toLocaleString()}</span>`;
+                    header.appendChild(left); header.appendChild(right);
+                const body = document.createElement('div'); body.innerHTML = `<p>${escapeHtml(a.comentario || '')}</p>`;
+                const footer = document.createElement('div'); footer.classList.add('review-footer');
+                    const like = document.createElement('div'); like.className='small'; like.textContent = `Gostou do site: ${a.gostou === 'sim' ? 'Sim' : (a.gostou === 'nao' ? 'Não' : 'Mais ou menos')}`;
+                    const controls = document.createElement('div'); controls.className='controls';
+                    const del = document.createElement('button'); del.className='btn secondary'; del.textContent='Excluir';
+                    del.addEventListener('click', ()=> excluirAvaliacao(a.id));
+                    controls.appendChild(del);
+                    footer.appendChild(like); footer.appendChild(controls);
+                    el.appendChild(header); el.appendChild(body); el.appendChild(footer);
+                    container.appendChild(el);
+                });
+            }
+
+            function excluirAvaliacao(id){
+                const list = carregarAvaliacoes().filter(x => x.id !== id);
+                salvarAvaliacoes(list);
+                renderAvaliacoes(); renderEstatisticas();
+            }
+
+            document.getElementById('formSeguranca').addEventListener('submit', function(e){
+                e.preventDefault();
+                const data = new FormData(this);
+                const nota = data.get('nota');
+                const pagina = data.get('pagina');
+                const gostou = data.get('gostou');
+                const comentario = data.get('comentario') || '';
+                const nome = data.get('nome') || '';
+                const novo = { id: gerarId(), nota, pagina, gostou, comentario, nome, timestamp: new Date().toISOString() };
+                const list = carregarAvaliacoes(); list.push(novo); salvarAvaliacoes(list);
+                this.reset();
+                document.getElementById('confirmacao').classList.remove('oculto');
+                setTimeout(()=> document.getElementById('confirmacao').classList.add('oculto'), 2500);
+                renderAvaliacoes(); renderEstatisticas();
+            });
+
+            document.getElementById('limparForm').addEventListener('click', ()=> document.getElementById('formSeguranca').reset());
+
+            document.getElementById('exportBtn').addEventListener('click', ()=>{
+                const data = carregarAvaliacoes();
+                const blob = new Blob([JSON.stringify(data, null, 2)], {type:'application/json'});
+                const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href=url; a.download='avaliacoes-skate.json'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+            });
+
+            document.getElementById('clearAll').addEventListener('click', ()=>{
+                if(confirm('Apagar todas as avaliações? Esta ação não pode ser desfeita.')){
+                    salvarAvaliacoes([]); renderAvaliacoes(); renderEstatisticas();
+                }
+            });
+
+            // inicializar
+            renderAvaliacoes(); renderEstatisticas();
+        </script>
 
     <footer>
         <p>&copy; 2026 Aprender Skate • <a href="referencias.html">Referências</a></p>

@@ -32,8 +32,10 @@ body {
 }
 
 img {
-    max-width: 100%;
+    max-width: 60%;
     display: block;
+    margin: 0 auto;
+    height: auto;
 }
 
 a {
@@ -46,6 +48,7 @@ a:focus-visible {
     text-decoration: underline;
 }
 
+/* ===== HEADER ===== */
 header {
     background: rgba(255, 255, 255, 0.86);
     -webkit-backdrop-filter: blur(14px);
@@ -67,11 +70,19 @@ header {
     gap: 1rem;
 }
 
+/* ===== LOGO ===== */
 .logo {
-    max-height: 56px;
+    max-height: 80px;
+    /* aumentado para dar mais destaque */
     width: auto;
+    transition: transform 0.3s ease;
 }
 
+.logo:hover {
+    transform: scale(1.05);
+}
+
+/* ===== NAV ===== */
 nav ul {
     list-style: none;
     padding: 0;
@@ -95,38 +106,14 @@ nav a:focus-visible {
     background: rgba(14, 63, 147, 0.08);
 }
 
+/* ===== CONTAINER ===== */
 .container {
     max-width: 1120px;
     margin: 2rem auto;
     padding: 0 1.25rem;
 }
 
-.hero {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 2rem;
-    align-items: center;
-    margin-bottom: 2rem;
-}
-
-.hero h1,
-.content-card h1,
-.content-card h2 {
-    margin-top: 0;
-}
-
-.hero h1 {
-    font-size: clamp(2.4rem, 4vw, 3.6rem);
-    line-height: 1.05;
-    color: var(--primary-dark);
-}
-
-.hero p {
-    color: var(--text-muted);
-    font-size: 1.05rem;
-    max-width: 45rem;
-}
-
+/* ===== CONTENT CARD ===== */
 .content-card {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -134,8 +121,10 @@ nav a:focus-visible {
     box-shadow: var(--shadow);
     padding: 2rem;
     margin-bottom: 2rem;
+    animation: fadeInUp 0.75s ease both;
 }
 
+/* ===== SKATE BANNER ===== */
 .skate-banner {
     display: flex;
     align-items: flex-end;
@@ -177,110 +166,27 @@ nav a:focus-visible {
     box-shadow: inset 0 0 0 1px rgba(255, 69, 0, 0.05);
 }
 
-.confirmacao {
-    margin-top: 1rem;
-    color: #0f766e;
-    font-weight: 700;
-    background: rgba(239, 246, 255, 0.92);
-    padding: 1rem 1.2rem;
-    border-radius: 16px;
-    border: 1px solid #bae6fd;
-}
-
-.content-card h2 {
-    color: var(--primary-dark);
-    margin-bottom: 1rem;
-}
-
-.imagem-destaque {
-    border-radius: 20px;
-    box-shadow: 0 18px 50px rgba(15, 23, 42, 0.12);
-}
-
-.skate-game {
-    width: 100%;
-    border-radius: 18px;
-    border: 1px solid #dbeafe;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(229, 242, 255, 0.9) 100%);
-}
-
-.game-panel {
-    display: grid;
-    gap: 1rem;
-}
-
-.game-controls {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-}
-
-.game-message {
-    margin: 0;
-    color: var(--text-muted);
-    font-weight: 700;
-}
-
-.ranking-card {
-    background: var(--surface-strong);
-    border-radius: 18px;
-    padding: 1rem;
-    border: 1px solid #dbeafe;
-}
-
-.ranking-card h3 {
-    margin: 0 0 0.75rem;
-    color: var(--primary-dark);
-    font-size: 1rem;
-}
-
-.ranking-list {
-    margin: 0;
-    padding-left: 1.25rem;
-}
-
-.ranking-list li {
-    margin-bottom: 0.5rem;
-}
-
-.video-wrapper {
-    position: relative;
-    width: 100%;
-    padding-top: 56.25%;
-    border-radius: 18px;
-    overflow: hidden;
-    margin-top: 1.5rem;
-    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
-}
-
-.video-wrapper iframe,
+/* ===== IMAGENS ===== */
+.imagem-destaque,
 .video-wrapper img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border: 0;
+    display: block;
+    margin: 1.5rem auto;
+    border-radius: 18px;
+    box-shadow: 0 12px 40px rgba(15, 23, 42, 0.12);
+    max-width: 600px;
+    /* reduzido para ficar proporcional ao logo */
+    width: 70%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-#lista-dicas {
-    list-style: none;
-    padding: 0;
-    margin: 1rem 0 0;
+.imagem-destaque:hover,
+.video-wrapper img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 18px 50px rgba(15, 23, 42, 0.18);
 }
 
-#lista-dicas li {
-    margin: 0.75rem 0;
-    background-color: var(--surface-strong);
-    padding: 1rem;
-    border-radius: 16px;
-    border: 1px solid rgba(30, 144, 255, 0.14);
-}
-
-button,
-.botao-video {
+/* ===== BOTÕES ===== */
+button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -298,20 +204,13 @@ button,
 }
 
 button:hover,
-button:focus-visible,
-.botao-video:hover,
-.botao-video:focus-visible {
+button:focus-visible {
     background-color: #0d68c0;
     transform: translateY(-1px) scale(1.01);
     box-shadow: 0 12px 24px rgba(14, 63, 147, 0.18);
 }
 
-.botao-video {
-    text-decoration: none;
-    border-radius: 16px;
-    text-transform: none;
-}
-
+/* ===== EXTRAS ===== */
 .extra-dicas {
     margin-top: 1rem;
     padding: 1.2rem;
@@ -320,59 +219,87 @@ button:focus-visible,
     border: 1px solid #dbeafe;
 }
 
-form {
-    display: grid;
+/* Imagem centralizada abaixo do título (se aplicável) */
+.imagem-dicas-centralizada {
+    text-align: center;
+    margin: 0.75rem 0 1rem 0;
+}
+.imagem-dicas-centralizada .dicas-imagem {
+    display: inline-block;
+    width: clamp(320px, 36vw, 720px);
+    max-width: 70%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(15,23,42,0.08);
+}
+
+@media (max-width: 880px) {
+    .imagem-dicas-centralizada .dicas-imagem {
+        max-width: 92%;
+        width: 92%;
+    }
+}
+
+/* Esconder elementos com a classe oculto (usada para mostrar/ocultar extras) */
+.oculto {
+    display: none !important;
+}
+
+/* Lista de dicas: alinhamento e espaçamento consistente */
+#lista-dicas {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+#lista-dicas li {
+    margin-bottom: 0.6rem;
+}
+#lista-dicas label {
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+    line-height: 1.4;
+}
+#lista-dicas input[type="checkbox"] {
+    margin-top: 0.25rem;
+}
+
+/* Ajustes na seção de extras para ficar ordenada e responsiva */
+.extra-dicas .skate-banner {
+    align-items: flex-start;
     gap: 1rem;
+    justify-content: space-between;
+}
+.extra-dicas .skate-banner h1 {
+    flex: 1 1 60%;
+    margin-right: 1rem;
+}
+.extra-dicas .skate-ilustracao {
+    /* maior para preencher o espaço em branco em telas grandes */
+    width: clamp(320px, 40vw, 680px);
+    max-width: 48%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+}
+.extra-dicas p {
+    margin: 0.5rem 0;
+    text-align: left;
 }
 
-input,
-textarea {
-    width: 100%;
-    padding: 1rem;
-    border: 1px solid #cbd5e1;
-    border-radius: 14px;
-    font: inherit;
-    color: var(--text);
-    background: #f8fbff;
+@media (max-width: 860px) {
+    .extra-dicas .skate-banner {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .extra-dicas .skate-ilustracao {
+        margin-left: 0;
+        width: 80%;
+    }
 }
 
-label {
-    font-weight: 700;
-    color: var(--text);
-}
-
-.info-grid {
-    display: grid;
-    gap: 2rem;
-    margin-top: 1.5rem;
-}
-
-.form-card {
-    background: #fbfbff;
-    border-radius: 20px;
-    padding: 1.5rem;
-    border: 1px solid #e2e8f0;
-}
-
-.confirmacao {
-    margin-top: 1rem;
-    color: var(--success);
-    font-weight: 700;
-}
-
-.referencias-lista {
-    display: grid;
-    gap: 1rem;
-    padding-left: 1.2rem;
-}
-
-.referencias-lista li {
-    background: var(--surface-strong);
-    border-radius: 18px;
-    padding: 1rem 1.1rem;
-    border: 1px solid #dbeafe;
-}
-
+/* ===== FOOTER ===== */
 footer {
     text-align: center;
     padding: 1.5rem 1.25rem;
@@ -381,37 +308,29 @@ footer {
     border-top: 1px solid #e2e8f0;
 }
 
-footer a {
-    color: var(--primary);
-}
-
-.oculto {
-    display: none !important;
-}
-
+/* ===== ANIMAÇÃO ===== */
 @keyframes fadeInUp {
     from {
         opacity: 0;
         transform: translateY(24px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-.hero,
-.content-card,
-footer,
-.video-wrapper,
-.referencias-lista li {
-    animation: fadeInUp 0.75s ease both;
-}
-
+/* ===== RESPONSIVIDADE ===== */
 @media (max-width: 860px) {
-    .hero,
-    .info-grid {
-        grid-template-columns: 1fr;
+    .logo {
+        max-height: 64px;
+    }
+
+    .imagem-destaque,
+    .video-wrapper img {
+        max-width: 100%;
+        border-radius: 14px;
     }
 }
 
@@ -424,8 +343,58 @@ footer,
     nav ul {
         justify-content: center;
     }
+}
 
-    .hero {
-        gap: 1.25rem;
+/* ===== DICAS BÁSICAS (cartões) ===== */
+.dicas-basicas {
+    display: flex;
+    gap: 1rem;
+    margin: 1.25rem 0 0.75rem 0;
+    align-items: stretch;
+}
+.dica-card {
+    background: linear-gradient(180deg, #ffffff, #f7fbff);
+    border: 1px solid #e6f0ff;
+    border-radius: 12px;
+    padding: 0.75rem;
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    flex: 1 1 220px;
+    min-width: 0;
+}
+.dica-icon {
+    font-size: 1.6rem;
+    line-height: 1;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f0faf7;
+    border-radius: 10px;
+}
+.dica-text h3 {
+    margin: 0 0 0.25rem 0;
+    font-size: 1rem;
+}
+.dica-text p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+@media (max-width: 880px) {
+    .dicas-basicas {
+        flex-direction: column;
     }
 }
+
+/* ===== REVIEWS & STATS ===== */
+.small { font-size: 0.95rem; color: var(--text-muted); }
+.review { border: 1px solid #e6f2ff; padding: 0.8rem; border-radius: 10px; margin-bottom: 0.75rem; background: #fbfeff; }
+.review-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem; }
+.review-footer { display:flex; justify-content:space-between; align-items:center; margin-top:0.5rem; }
+.controls { display:flex; gap:0.5rem; }
+.estatisticas .stats-list { margin-top:0.5rem; }
