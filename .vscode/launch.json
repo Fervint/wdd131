@@ -1,0 +1,14 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    
+    {
+      "name": "Launch Aprender Skate in Edge",
+      "type": "pwa-msedge",
+      "request": "launch",
+      "file": "${workspaceFolder}/projeto/index.html",
+      "userDataDir": "${workspaceFolder}/.vscode/msedge-profile",
+      "webRoot": "${workspaceFolder}"
+    }
+  ]
+}

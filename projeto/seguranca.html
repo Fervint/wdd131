@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
@@ -6,29 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Segurança no Skate - Aprender Skate</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 
 <body>
     <header>
-        <img src="imagens/logo.png" alt="Logo Aprender Skate" class="logo">
-        <nav>
-            <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="dicas.html">Dicas</a></li>
-                <li><a href="seguranca.html">Segurança</a></li>
-                <li><a href="referencias.html">Referências</a></li>
-            </ul>
-        </nav>
+        <div class="header-inner">
+            <img src="imagens/logo.png" alt="Logo Aprender Skate" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="dicas.html">Dicas</a></li>
+                    <li><a href="seguranca.html">Segurança</a></li>
+                    <li><a href="referencias.html">Referências</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main class="container">
-        <h1>Segurança e Motivação</h1>
-        <p>Antes de começar a andar de skate, é essencial usar os equipamentos de proteção corretos e entender que o
-            aprendizado é contínuo — o skate é infinito, assim como a dedicação e fé que o acompanham.</p>
-
-        <!-- Imagem de proteção -->
-        <img src="imagens/protecao.webp" alt="Equipamentos de proteção para skate" loading="lazy"
-            class="imagem-destaque">
+        <section class="content-card">
+            <h1>Segurança e Motivação</h1>
+            <p>Antes de começar a andar de skate, é essencial usar os equipamentos de proteção corretos e entender que o aprendizado é contínuo — o skate é infinito, assim como a dedicação e fé que o acompanham.</p>
+            <img src="imagens/protecao.webp" alt="Equipamentos de proteção para skate" loading="lazy" class="imagem-destaque">
+        </section>
 
         <section class="content-card">
             <h2>Equipamentos essenciais</h2>
@@ -41,56 +42,41 @@
         </section>
 
         <section class="content-card">
-            <h2>Veja na prática</h2>
-            <p>
-                🎥 <a href="https://www.youtube.com/shorts/gezIQA9dFhM" target="_blank" rel="noopener" class="botao-video">
-                    Assista ao vídeo completo no YouTube</a>
-            </p>
-
-            <p><strong>Mensagem motivacional — por Fabio Dicria:</strong></p>
-            <p>
-                “Aprender skate é mais do que equilibrar o corpo — é equilibrar a mente e o coração.
-                Faz cinco anos que estou nessa jornada, e cada queda me ensinou algo novo.
-                O skate é infinito, assim como a palavra de Deus.
-                Quando penso em Jesus, lembro que a fé e a persistência são o que nos mantêm de pé, mesmo quando o chão
-                parece duro demais.
-                Cada manobra é um exercício de paciência, cada tentativa é um passo rumo à superação.
-                O segredo é nunca desistir, porque o verdadeiro progresso vem quando a gente acredita — em Deus, na vida
-                e em nós mesmos.”
-            </p>
+            <h2>Prática segura</h2>
+            <p>Comece em locais planos e seguros, como parques de skate ou áreas designadas. Evite ruas movimentadas e sempre esteja atento ao ambiente ao seu redor.</p>
         </section>
 
-        <!-- Formulário -->
+        <section class="content-card">
+            <h2>Superação e fé no skate</h2>
+            <p>“Aprender skate não é fácil — é cair, levantar e tentar de novo. É sentir o asfalto, o vento e o som das rodas como parte da alma. Cada manobra é um desafio, mas também uma oração silenciosa de quem acredita que pode vencer. Lembro das palavras de Filipenses 4:13 — ‘Posso todas as coisas naquele que me fortalece’. E também de Isaías 40:31 — ‘Mas os que esperam no Senhor renovarão as suas forças; subirão com asas como águias, correrão e não se cansarão’. O skate me ensinou que a fé e a persistência andam lado a lado. É sobre alegria, paz, amizade e movimento — porque quando a gente se conecta com o skate, se conecta com a vida. No som do rap, no ritmo do rock, na energia da eletrônica, no estilo que você gostar, na arte das ruas, dos parques, nas praças e pistas, encontramos força para continuar. E é isso que o skate representa: liberdade, coragem e amor pelo que fazemos.”</p>
+        </section>
+
         <section class="content-card">
             <h2>Compartilhe sua experiência</h2>
             <form id="formSeguranca" action="#" method="post">
                 <label for="nome">Nome:</label>
                 <input type="text" id="nome" name="nome" required>
-
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-
                 <label for="mensagem">Mensagem:</label>
                 <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
-
                 <button type="submit">Enviar</button>
             </form>
-            <p id="confirmacao" class="oculto">✅ Obrigado por compartilhar sua experiência!</p>
+            <p id="confirmacao" class="oculto confirmacao">✅ Obrigado por compartilhar sua experiência!</p>
         </section>
     </main>
+
+    <script>
+        document.getElementById("formSeguranca").addEventListener("submit", function (event) {
+            event.preventDefault();
+            const confirmacao = document.getElementById("confirmacao");
+            confirmacao.textContent = "✅ Mensagem enviada com sucesso! A mensagem não é armazenada, mas sua voz foi ouvida.";
+            confirmacao.classList.remove("oculto");
+            this.reset();
+        });
+    </script>
 
     <footer>
         <p>&copy; 2026 Aprender Skate • <a href="referencias.html">Referências</a></p>
     </footer>
-
-    <script>
-        // Validação simples do formulário
-        document.getElementById("formSeguranca").addEventListener("submit", function (event) {
-            event.preventDefault();
-            document.getElementById("confirmacao").classList.remove("oculto");
-            this.reset();
-        });
-    </script>
 </body>
 
 </html>

@@ -30,19 +30,20 @@
                 <p>Este site foi criado para ajudar iniciantes a dar os primeiros passos no skate com segurança e
                     diversão.</p>
 
-                <!-- Link e embed do vídeo -->
+                <!-- Ícone e link do vídeo -->
                 <p>
-                    🎥 <a href="https://www.youtube.com/shorts/gezIQA9dFhM" target="_blank" class="botao-video">Assista ao vídeo no YouTube</a>
+                    🎥 <a href="https://www.youtube.com/shorts/gezIQA9dFhM" target="_blank" rel="noopener" class="botao-video">
+                        Clique para assistir ao vídeo</a>
                 </p>
-                <div class="video-wrapper" aria-label="Vídeo demonstrativo">
-                    <iframe src="https://www.youtube.com/embed/gezIQA9dFhM?rel=0" title="Vídeo Aprender Skate" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                </div>
             </div>
 
-            <!-- Imagem principal -->
-            <div>
-                <img src="imagens/skate-iniciante.webp" alt="Pessoa aprendendo skate" loading="lazy"
-                    class="imagem-destaque">
+            <!-- Imagem clicável do vídeo -->
+            <div class="video-wrapper">
+                <a href="https://www.youtube.com/shorts/gezIQA9dFhM" target="_blank" rel="noopener"
+                    aria-label="Assistir vídeo no YouTube">
+                    <img src="imagens/skate-iniciante.webp" alt="Clique para assistir ao vídeo Aprender Skate"
+                        class="imagem-destaque">
+                </a>
             </div>
         </section>
 
@@ -59,11 +60,30 @@
                 e em nós mesmos.”
             </p>
         </section>
+
+        <!-- Mini jogo -->
+        <section class="content-card">
+            <h2>Mini Jogo: Skate Jump</h2>
+            <div class="game-panel">
+                <canvas id="skateGame" width="400" height="150" class="skate-game"></canvas>
+                <div class="game-controls">
+                    <button id="playGame" type="button">Jogar</button>
+                    <span id="gameScore">Pontuação: 0</span>
+                </div>
+                <p id="gameMessage" class="game-message">Pressione o botão Jogar e use espaço para pular.</p>
+                <div class="ranking-card">
+                    <h3>Ranking</h3>
+                    <ol id="ranking" class="ranking-list"></ol>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
         <p>&copy; 2026 Aprender Skate • <a href="referencias.html">Referências</a></p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
